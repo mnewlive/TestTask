@@ -15,8 +15,6 @@ import com.facebook.login.widget.LoginButton;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final String USER_FRIENDS = "user_friends";
-    private LoginButton loginButton;
     private CallbackManager callbackManager;
 
     @Override
@@ -28,19 +26,18 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        FacebookSdk.sdkInitialize(getApplicationContext());
-        AppEventsLogger.activateApp(getApplication());
-        callbackManager = CallbackManager.Factory.create();
-
+        initFacebookUtils();
         setContentView(R.layout.activity_main);
+        initLoginButton();
+    }
 
-        loginButton = (LoginButton) findViewById(R.id.login_button);
-        loginButton.setReadPermissions(USER_FRIENDS);
+    private void initLoginButton() {
+        LoginButton loginButton = (LoginButton) findViewById(R.id.login_button);
 
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
-                startActivity(new Intent(getApplicationContext(),Country.class));
+                startActivity(new Intent(getApplicationContext(), Country.class));
             }
 
             @Override
@@ -53,7 +50,11 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), R.string.on_error_message, Toast.LENGTH_SHORT).show();
             }
         });
+    }
 
-
+    private void initFacebookUtils() {
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        AppEventsLogger.activateApp(getApplication());
+        callbackManager = CallbackManager.Factory.create();
     }
 }
