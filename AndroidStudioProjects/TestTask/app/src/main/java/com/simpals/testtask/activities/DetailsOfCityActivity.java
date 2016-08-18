@@ -17,12 +17,16 @@ public class DetailsOfCityActivity extends AppCompatActivity {
 
     @BindView(R.id.textViewCounty)
     TextView textViewCounty;
+    @BindView(R.id.textViewLocation)
+    TextView textViewLocation;
     @BindView(R.id.textViewDescription)
     TextView textViewDescription;
     @BindView(R.id.textViewZip)
     TextView textViewZip;
     @BindView(R.id.textViewStreetType)
     TextView textViewStreetType;
+    @BindView(R.id.textViewSector)
+    TextView textViewSector;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,9 +43,10 @@ public class DetailsOfCityActivity extends AppCompatActivity {
     private void populateTextViews(City city) {
         StringFormater stringFormater = new StringFormater(this);
         textViewCounty.setText(stringFormater.formatString(city.getCounty(), R.string.county_name));
-        textViewDescription.setText(stringFormater.formatString(city.getCounty(), R.string.description));
-        textViewZip.setText(stringFormater.formatString(city.getCounty(), R.string.zip_code));
-        textViewStreetType.setText(stringFormater.formatString(city.getCounty(), R.string.street_type));
-
+        textViewLocation.setText(stringFormater.formatString(city.getLocation(), R.string.location));
+        textViewDescription.setText(stringFormater.formatString(city.getDescription(), R.string.description));
+        textViewZip.setText(stringFormater.formatString(city.getZip(), R.string.zip_code));
+        textViewStreetType.setText(stringFormater.formatString(city.getStreetType(), R.string.street_type));
+        textViewSector.setText(stringFormater.formatString(city.getSector(), R.string.sector));
     }
 }
