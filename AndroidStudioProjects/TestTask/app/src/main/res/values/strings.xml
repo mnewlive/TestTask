@@ -3,4 +3,9 @@
     <string name="facebook_app_id">625013414322824</string>
     <string name="on_cancel_message">You canceled signing in Facebook</string>
     <string name="on_error_message">Error, please, try later</string>
+    <string name="city">city</string>
+    <string name="county_name">county</string>
+    <string name="description">description</string>
+    <string name="zip_code">zipcode</string>
+    <string name="street_type">street_type</string>
 </resources>
