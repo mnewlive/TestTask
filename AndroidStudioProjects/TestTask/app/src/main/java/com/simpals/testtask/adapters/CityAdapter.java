@@ -13,6 +13,7 @@ import com.simpals.testtask.Model.City;
 import com.simpals.testtask.R;
 import com.simpals.testtask.activities.DetailsOfCityActivity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,7 +24,7 @@ public class CityAdapter extends RecyclerView.Adapter<CityAdapter.MyViewHolder> 
     List<City> list;
     Activity activity;
 
-    public CityAdapter(List<City> list, Activity activity) {
+    public CityAdapter(Activity activity, ArrayList<City> list) {
         this.list = list;
         this.activity = activity;
     }
@@ -60,7 +61,7 @@ public class CityAdapter extends RecyclerView.Adapter<CityAdapter.MyViewHolder> 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         City city = list.get(position);
-        holder.city.setText(city.getCity());
+       // holder.city.setText(city.getCity());
 
     }
 

@@ -1,4 +1,4 @@
-package com.simpals.testtask;
+package com.simpals.testtask.Utils;
 
 import android.content.Context;
 

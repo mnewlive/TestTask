@@ -4,10 +4,13 @@
     <string name="on_cancel_message">You canceled signing in Facebook</string>
     <string name="on_error_message">Error, please, try later</string>
     <string name="city">city</string>
-    <string name="county_name">county</string>
-    <string name="description">description</string>
-    <string name="zip_code">zipcode</string>
-    <string name="street_type">street_type</string>
-    <string name="location">location</string>
-    <string name="sector">sector</string>
+    <string name="county_name">county: </string>
+    <string name="description">description: </string>
+    <string name="zip_code">zipcode: </string>
+    <string name="street_type">street_type: </string>
+    <string name="location">location: </string>
+    <string name="sector">sector: </string>
+    <string name="error_connecting">error</string>
+    <string name="try_again">Try again</string>
+    <string name="close">Close</string>
 </resources>

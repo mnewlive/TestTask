@@ -8,7 +8,7 @@ import android.widget.TextView;
 import com.simpals.testtask.Constants;
 import com.simpals.testtask.Model.City;
 import com.simpals.testtask.R;
-import com.simpals.testtask.StringFormater;
+import com.simpals.testtask.Utils.StringFormater;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
