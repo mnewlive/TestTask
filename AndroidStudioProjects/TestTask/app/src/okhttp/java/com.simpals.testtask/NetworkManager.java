@@ -4,14 +4,13 @@ import android.content.Context;
 import android.os.AsyncTask;
 
 
-import com.google.gson.Gson;
 import com.simpals.testtask.Model.City;
+import com.simpals.testtask.Utils.JSONParser;
 import com.simpals.testtask.api.Api;
 import com.simpals.testtask.api.ApiCallback;
 
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -58,21 +57,15 @@ public class NetworkManager extends Api {
             if (s.isEmpty()) return;
             super.onPostExecute(s);
             try {
-                ArrayList<City> cities = new ArrayList<City>();
-                City city;
+                ArrayList<City> city = new ArrayList<City>();
                 JSONArray jsonArray = null;
                 try {
                     jsonArray = new JSONArray(s);
-                    Gson gson = new Gson();
-                    for (int i = 0; i < jsonArray.length(); ++i) {
-                        JSONObject jsonCity = jsonArray.getJSONObject(i);
-                        city = gson.fromJson(jsonCity.toString(), City.class);
-                        cities.add(city);
-                    }
+                    city = new JSONParser().parseJSON(jsonArray);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                callback.onSuccess(cities);
+                callback.onSuccess(city);
             } catch (JSONException e) {
                 callback.onFailure(e);
             }

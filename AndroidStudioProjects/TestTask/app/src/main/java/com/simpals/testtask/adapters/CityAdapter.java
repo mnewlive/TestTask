@@ -32,11 +32,11 @@ public class CityAdapter extends RecyclerView.Adapter<CityAdapter.MyViewHolder> 
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
 
-        TextView city;
+        TextView county;
 
         public MyViewHolder(View view) {
             super(view);
-            city = (TextView) itemView.findViewById(R.id.textViewCity);
+            county = (TextView) itemView.findViewById(R.id.textViewCity);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -61,7 +61,7 @@ public class CityAdapter extends RecyclerView.Adapter<CityAdapter.MyViewHolder> 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         City city = list.get(position);
-       // holder.city.setText(city.getCity());
+        holder.county.setText(city.getCounty());
 
     }
 
