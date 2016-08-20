@@ -3,7 +3,7 @@ package com.simpals.testtask;
 import android.content.Context;
 
 
-import com.simpals.testtask.Model.City;
+import com.simpals.testtask.model.City;
 import com.simpals.testtask.api.Api;
 import com.simpals.testtask.api.ApiCallback;
 
@@ -22,9 +22,6 @@ import retrofit2.Retrofit;
 import retrofit2.http.GET;
 
 
-/**
- * Created by vmorozov on 7/22/16.
- */
 public class NetworkManager extends Api {
 
     public static final String CITY = "City: ";

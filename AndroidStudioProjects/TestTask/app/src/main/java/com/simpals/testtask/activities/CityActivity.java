@@ -4,15 +4,16 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.simpals.testtask.Model.City;
+import com.simpals.testtask.model.City;
 import com.simpals.testtask.NetworkManager;
 import com.simpals.testtask.R;
-import com.simpals.testtask.Utils.ConnectionChecker;
+import com.simpals.testtask.utils.ConnectionChecker;
 import com.simpals.testtask.adapters.CityAdapter;
 import com.simpals.testtask.api.ApiCallback;
 
@@ -29,14 +30,17 @@ public class CityActivity extends AppCompatActivity {
     private ArrayList<City> city = new ArrayList<>();
     private CityAdapter cityAdapter;
     private Activity activity = this;
+    private DrawerLayout drawerLayout;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_city);
         initRecyclerView();
         chooseSource();
+        initNavigationView();
     }
 
     @Override
@@ -93,11 +97,14 @@ public class CityActivity extends AppCompatActivity {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
     }
 
-    private void chooseSource(){
+    private void chooseSource() {
         if (new ConnectionChecker().isInternet(this)) {
             NetworkManager networkManager = getNetworkManager();
             networkManager.requestAllJobs();
         }
+    }
 
+    private void initNavigationView() {
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
     }
 }
