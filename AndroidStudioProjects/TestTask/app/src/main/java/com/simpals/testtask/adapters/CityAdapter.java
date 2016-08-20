@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.simpals.testtask.Constants;
-import com.simpals.testtask.Model.City;
+import com.simpals.testtask.model.City;
 import com.simpals.testtask.R;
 import com.simpals.testtask.activities.DetailsOfCityActivity;
 

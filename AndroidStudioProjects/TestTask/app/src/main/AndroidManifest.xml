@@ -24,6 +24,10 @@
         </activity>
         <activity android:name=".activities.CityActivity" />
         <activity android:name=".activities.DetailsOfCityActivity" />
+
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyDe5qP70YYktjc3_5NQsEg1PkF17eIIwjQ" />
     </application>
 
 </manifest>

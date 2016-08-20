@@ -1,6 +1,6 @@
 package com.simpals.testtask.api;
 
-import com.simpals.testtask.Model.City;
+import com.simpals.testtask.model.City;
 
 import org.json.JSONException;
 

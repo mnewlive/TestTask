@@ -43,4 +43,6 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"/>
 
+    <include layout="@layout/map"/>
+
 </LinearLayout>

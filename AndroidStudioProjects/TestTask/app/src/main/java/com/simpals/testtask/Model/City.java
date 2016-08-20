@@ -1,4 +1,4 @@
-package com.simpals.testtask.Model;
+package com.simpals.testtask.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;

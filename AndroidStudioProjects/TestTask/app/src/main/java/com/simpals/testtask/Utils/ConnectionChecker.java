@@ -1,4 +1,4 @@
-package com.simpals.testtask.Utils;
+package com.simpals.testtask.utils;
 
 import android.content.Context;
 import android.net.ConnectivityManager;

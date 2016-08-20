@@ -1,7 +1,7 @@
-package com.simpals.testtask.Utils;
+package com.simpals.testtask.utils;
 
 import com.google.gson.Gson;
-import com.simpals.testtask.Model.City;
+import com.simpals.testtask.model.City;
 
 import org.json.JSONArray;
 import org.json.JSONException;

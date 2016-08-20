@@ -4,8 +4,8 @@ import android.content.Context;
 import android.os.AsyncTask;
 
 
-import com.simpals.testtask.Model.City;
-import com.simpals.testtask.Utils.JSONParser;
+import com.simpals.testtask.model.City;
+import com.simpals.testtask.utils.JSONParser;
 import com.simpals.testtask.api.Api;
 import com.simpals.testtask.api.ApiCallback;
 
