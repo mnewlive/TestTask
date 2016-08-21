@@ -44,7 +44,7 @@ public class CityActivity extends BaseActivity implements NavigationView.OnNavig
     protected void onResume() {
         super.onResume();
         if (!new ConnectionChecker().isInternet(this)) {
-            getNetworkManager().requestAllJobs();
+            getNetworkManager().requestAllCities();
         }
     }
 
@@ -73,7 +73,7 @@ public class CityActivity extends BaseActivity implements NavigationView.OnNavig
                                 public void onClick(DialogInterface dialogInterface, int i) {
                                     switch (i) {
                                         case 0:
-                                            getNetworkManager().requestAllJobs();
+                                            getNetworkManager().requestAllCities();
                                             break;
                                         case 1:
                                             finish();
@@ -90,9 +90,10 @@ public class CityActivity extends BaseActivity implements NavigationView.OnNavig
     private void chooseSource() {
         if (new ConnectionChecker().isInternet(this)) {
             NetworkManager networkManager = getNetworkManager();
-            networkManager.requestAllJobs();
+            networkManager.requestAllCities();
         }
     }
+
     protected void initNavigationView() {
         DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         NavigationView navigationView = (NavigationView) findViewById(R.id.navigationView);
@@ -112,7 +113,7 @@ public class CityActivity extends BaseActivity implements NavigationView.OnNavig
         return false;
     }
 
-    private void start(Class activity){
+    private void start(Class activity) {
         startActivity(new Intent(CityActivity.this, activity));
     }
 }

@@ -9,7 +9,7 @@ import com.google.gson.annotations.SerializedName;
 /**
  * Created by Vadim on 21.08.2016.
  */
-public class Translations  implements Parcelable{
+public class Translations implements Parcelable {
 
     @SerializedName("de")
     @Expose

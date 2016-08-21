@@ -14,6 +14,5 @@ public abstract class Api {
         this.callback = callback;
         this.context = context;
     }
-
-    public abstract void requestAllJobs();
+    public abstract void requestAllCities();
 }

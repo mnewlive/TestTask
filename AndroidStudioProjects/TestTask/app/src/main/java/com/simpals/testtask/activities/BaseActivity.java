@@ -35,6 +35,7 @@ public class BaseActivity extends AppCompatActivity {
         FacebookSdk.sdkInitialize(getApplicationContext());
         AppEventsLogger.activateApp(getApplication());
     }
+
     protected void initRecyclerView() {
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());

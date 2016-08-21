@@ -2,8 +2,6 @@ package com.simpals.testtask;
 
 import android.content.Context;
 import android.os.AsyncTask;
-
-
 import com.simpals.testtask.model.City;
 import com.simpals.testtask.utils.JSONParser;
 import com.simpals.testtask.api.Api;
@@ -14,7 +12,6 @@ import org.json.JSONException;
 
 import java.io.IOException;
 import java.util.ArrayList;
-
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -30,7 +27,6 @@ public class NetworkManager extends Api {
     private class RequestJobsTask extends AsyncTask<Void, Void, String> {
         private OkHttpClient client;
         private Request request;
-
         @Override
         protected String doInBackground(Void... voids) {
             Response response = null;
@@ -71,12 +67,9 @@ public class NetworkManager extends Api {
             }
         }
     }
-
-    @Override
-    public void requestAllJobs() {
+    public void requestAllCities() {
         RequestJobsTask requestTask = new RequestJobsTask();
         requestTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
     }
-
 }
 

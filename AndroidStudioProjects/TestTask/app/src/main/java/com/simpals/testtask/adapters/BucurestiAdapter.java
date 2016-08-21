@@ -30,7 +30,7 @@ public class BucurestiAdapter extends RecyclerView.Adapter<BucurestiAdapter.MyVi
     }
 
 
-    public class MyViewHolder extends RecyclerView.ViewHolder{
+    public class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView county;
 

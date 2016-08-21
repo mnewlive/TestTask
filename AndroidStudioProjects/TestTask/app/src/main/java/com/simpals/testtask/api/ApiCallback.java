@@ -11,5 +11,6 @@ import java.util.ArrayList;
  */
 public interface ApiCallback {
     void onSuccess(ArrayList<City> city) throws JSONException;
+
     void onFailure(Exception e);
 }
