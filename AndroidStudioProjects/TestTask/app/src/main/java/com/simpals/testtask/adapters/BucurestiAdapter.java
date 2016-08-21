@@ -9,44 +9,41 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.simpals.testtask.Constants;
-import com.simpals.testtask.R;
-import com.simpals.testtask.activities.DetailsOfCitiesInEur;
-import com.simpals.testtask.model.CitiesInEurope;
 import com.simpals.testtask.model.City;
+import com.simpals.testtask.R;
+import com.simpals.testtask.activities.DetailsOfCityActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Vadim on 21.08.2016.
+ * Created by Vadim on 18.08.2016.
  */
-public class CityAdapter extends RecyclerView.Adapter<CityAdapter.MyViewHolder> {
+public class BucurestiAdapter extends RecyclerView.Adapter<BucurestiAdapter.MyViewHolder> {
 
-    List<CitiesInEurope> list;
+    List<City> list;
     Activity activity;
 
-    public CityAdapter(Activity activity, ArrayList<CitiesInEurope> list) {
+    public BucurestiAdapter(Activity activity, ArrayList<City> list) {
         this.list = list;
         this.activity = activity;
     }
 
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
+    public class MyViewHolder extends RecyclerView.ViewHolder{
 
-        TextView name;
-        TextView capital;
+        TextView county;
 
         public MyViewHolder(View view) {
             super(view);
-            name = (TextView) itemView.findViewById(R.id.textViewName);
-            capital = (TextView) itemView.findViewById(R.id.textViewCapital);
+            county = (TextView) itemView.findViewById(R.id.textViewCity);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    CitiesInEurope cities = list.get(getAdapterPosition());
-                    Intent intent = new Intent(activity, DetailsOfCitiesInEur.class);
-                    intent.putExtra((Constants.CITY), cities);
+                    City city = list.get(getAdapterPosition());
+                    Intent intent = new Intent(activity, DetailsOfCityActivity.class);
+                    intent.putExtra((Constants.CITY), city);
                     activity.startActivity(intent);
                 }
             });
@@ -57,15 +54,14 @@ public class CityAdapter extends RecyclerView.Adapter<CityAdapter.MyViewHolder> 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.list_item_eur, parent, false);
+                .inflate(R.layout.list_item, parent, false);
         return new MyViewHolder(itemView);
     }
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        CitiesInEurope cities = list.get(position);
-        holder.name.setText(cities.getName());
-        holder.capital.setText(cities.getCapital());
+        City city = list.get(position);
+        holder.county.setText(city.getCounty());
 
     }
 
@@ -73,4 +69,6 @@ public class CityAdapter extends RecyclerView.Adapter<CityAdapter.MyViewHolder> 
     public int getItemCount() {
         return list.size();
     }
+
+
 }

@@ -3,22 +3,18 @@ package com.simpals.testtask.activities;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.simpals.testtask.model.City;
 import com.simpals.testtask.NetworkManager;
 import com.simpals.testtask.R;
 import com.simpals.testtask.utils.ConnectionChecker;
-import com.simpals.testtask.adapters.CityAdapter;
+import com.simpals.testtask.adapters.BucurestiAdapter;
 import com.simpals.testtask.api.ApiCallback;
 
 import org.json.JSONException;
@@ -28,13 +24,11 @@ import java.util.ArrayList;
 /**
  * Created by Vadim on 18.08.2016.
  */
-public class CityActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class CityActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    private RecyclerView recyclerView;
     private ArrayList<City> city = new ArrayList<>();
-    private CityAdapter cityAdapter;
+    private BucurestiAdapter cityAdapter;
     private Activity activity = this;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +58,7 @@ public class CityActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onSuccess(ArrayList<City> cityList) throws JSONException {
                 city = cityList;
-                cityAdapter = new CityAdapter(activity, city);
+                cityAdapter = new BucurestiAdapter(activity, city);
                 recyclerView.setAdapter(cityAdapter);
             }
 
@@ -93,21 +87,13 @@ public class CityActivity extends AppCompatActivity implements NavigationView.On
         }, CityActivity.this);
     }
 
-    private void initRecyclerView() {
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-    }
-
     private void chooseSource() {
         if (new ConnectionChecker().isInternet(this)) {
             NetworkManager networkManager = getNetworkManager();
             networkManager.requestAllJobs();
         }
     }
-
-    private void initNavigationView() {
+    protected void initNavigationView() {
         DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         NavigationView navigationView = (NavigationView) findViewById(R.id.navigationView);
         navigationView.setNavigationItemSelectedListener(this);
@@ -117,12 +103,16 @@ public class CityActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.nav_menu_1:
-                Toast.makeText(CityActivity.this, R.string.city_rom, Toast.LENGTH_SHORT).show();
+                start(CityActivity.class);
                 break;
             case R.id.nav_menu_2:
-                Toast.makeText(CityActivity.this, R.string.city_eur, Toast.LENGTH_SHORT).show();
+                start(CitiesInEurActivity.class);
                 break;
         }
         return false;
+    }
+
+    private void start(Class activity){
+        startActivity(new Intent(CityActivity.this, activity));
     }
 }
