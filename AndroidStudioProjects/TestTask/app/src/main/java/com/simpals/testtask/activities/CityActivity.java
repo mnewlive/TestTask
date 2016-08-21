@@ -4,11 +4,15 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.simpals.testtask.model.City;
 import com.simpals.testtask.NetworkManager;
@@ -24,13 +28,12 @@ import java.util.ArrayList;
 /**
  * Created by Vadim on 18.08.2016.
  */
-public class CityActivity extends AppCompatActivity {
+public class CityActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private RecyclerView recyclerView;
     private ArrayList<City> city = new ArrayList<>();
     private CityAdapter cityAdapter;
     private Activity activity = this;
-    private DrawerLayout drawerLayout;
 
 
     @Override
@@ -90,7 +93,7 @@ public class CityActivity extends AppCompatActivity {
         }, CityActivity.this);
     }
 
-    private void initRecyclerView(){
+    private void initRecyclerView() {
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
@@ -105,6 +108,21 @@ public class CityActivity extends AppCompatActivity {
     }
 
     private void initNavigationView() {
-        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.navigationView);
+        navigationView.setNavigationItemSelectedListener(this);
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.nav_menu_1:
+                Toast.makeText(CityActivity.this, R.string.city_rom, Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.nav_menu_2:
+                Toast.makeText(CityActivity.this, R.string.city_eur, Toast.LENGTH_SHORT).show();
+                break;
+        }
+        return false;
     }
 }
