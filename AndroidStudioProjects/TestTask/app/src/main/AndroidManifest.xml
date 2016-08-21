@@ -28,6 +28,9 @@
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyDe5qP70YYktjc3_5NQsEg1PkF17eIIwjQ" />
+
+        <activity android:name=".activities.DetailsOfCitiesInEur" />
+        <activity android:name=".activities.CitiesInEurActivity" />
     </application>
 
 </manifest>

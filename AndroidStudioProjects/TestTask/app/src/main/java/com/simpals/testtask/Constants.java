@@ -5,5 +5,6 @@ package com.simpals.testtask;
  */
 public class Constants {
     public static final String URL = "http://openapi.ro/api/addresses.json?description=Bucuresti";
+    public static final String URL_EUR = "https://restcountries.eu/rest/v1/currency/eur";
     public static final String CITY = "City: ";
 }
